@@ -836,8 +836,7 @@ function MultiUI.Main()
             BorderSizePixel = 0
         }, {
             m.New("UICorner", {
-                CornerRadius = UDim.new(0, MultiUI.DefaultConfig.UICorner),
-                CornerMask = Enum.CornerMask.TopLeft + Enum.CornerMask.TopRight
+                CornerRadius = UDim.new(0, MultiUI.DefaultConfig.UICorner)
             }),
             m.New("TextLabel", {
                 Size = UDim2.new(1, -80, 1, 0),
