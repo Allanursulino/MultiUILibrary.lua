@@ -34,7 +34,7 @@ MultiUI.Connections = {}
 
 -- Configurações padrão
 MultiUI.DefaultConfig = {
-    Font = Enum.Font.Gotham, -- Alterado para fonte padrão do Roblox
+    Font = Enum.Font.Gotham,
     BackgroundImage = "",
     BackgroundTransparency = 0.8,
     CanDraggable = true,
@@ -210,7 +210,7 @@ function MultiUI.Main()
             BackgroundColor3 = theme.Primary,
             Text = config.Text or "Button",
             TextColor3 = Color3.new(1, 1, 1),
-            Font = Enum.Font.Gotham, -- Corrigido
+            Font = Enum.Font.Gotham,
             TextSize = 14,
             AutoButtonColor = false,
             Parent = config.Parent
@@ -266,15 +266,18 @@ function MultiUI.Main()
             Text = config.Text or "Toggle",
             TextColor3 = theme.Text,
             TextXAlignment = Enum.TextXAlignment.Left,
-            Font = Enum.Font.Gotham, -- Corrigido
+            Font = Enum.Font.Gotham,
             TextSize = 14
         })
 
-        local toggleButton = m.New("Frame", {
+        -- CORREÇÃO: Usar TextButton em vez de Frame
+        local toggleButton = m.New("TextButton", {
             Size = UDim2.new(0, 40, 0, 20),
             BackgroundColor3 = theme.Surface,
             AnchorPoint = Vector2.new(1, 0.5),
-            Position = UDim2.new(1, 0, 0.5, 0)
+            Position = UDim2.new(1, 0, 0.5, 0),
+            Text = "",
+            AutoButtonColor = false
         }, {
             m.New("UICorner", {
                 CornerRadius = UDim.new(1, 0)
@@ -315,6 +318,7 @@ function MultiUI.Main()
             end
         end
 
+        -- CORREÇÃO: Agora pode usar MouseButton1Click
         toggleButton.MouseButton1Click:Connect(function()
             toggleState = not toggleState
             updateToggle()
@@ -364,7 +368,7 @@ function MultiUI.Main()
             Text = config.Text or "Slider",
             TextColor3 = theme.Text,
             TextXAlignment = Enum.TextXAlignment.Left,
-            Font = Enum.Font.Gotham, -- Corrigido
+            Font = Enum.Font.Gotham,
             TextSize = 14
         })
 
@@ -374,7 +378,7 @@ function MultiUI.Main()
             Text = tostring(currentValue),
             TextColor3 = theme.TextSecondary,
             TextXAlignment = Enum.TextXAlignment.Right,
-            Font = Enum.Font.Gotham, -- Corrigido
+            Font = Enum.Font.Gotham,
             TextSize = 12
         })
 
@@ -399,11 +403,14 @@ function MultiUI.Main()
                     CornerRadius = UDim.new(1, 0)
                 })
             }),
-            m.New("Frame", {
+            -- CORREÇÃO: Usar TextButton em vez de Frame
+            m.New("TextButton", {
                 Size = UDim2.new(0, 16, 0, 16),
                 Position = UDim2.new(0, 0, 0.5, 0),
                 AnchorPoint = Vector2.new(0, 0.5),
                 BackgroundColor3 = Color3.new(1, 1, 1),
+                Text = "",
+                AutoButtonColor = false,
                 Name = "SliderButton"
             }, {
                 m.New("UICorner", {
@@ -493,7 +500,7 @@ function MultiUI.Main()
                 Text = config.Text,
                 TextColor3 = theme.Text,
                 TextXAlignment = Enum.TextXAlignment.Left,
-                Font = Enum.Font.Gotham, -- Corrigido
+                Font = Enum.Font.Gotham,
                 TextSize = 12
             })
             label.Parent = textBoxFrame
@@ -505,7 +512,7 @@ function MultiUI.Main()
             TextColor3 = theme.Text,
             PlaceholderText = config.Placeholder or "Enter text...",
             PlaceholderColor3 = theme.TextSecondary,
-            Font = Enum.Font.Gotham, -- Corrigido
+            Font = Enum.Font.Gotham,
             TextSize = 14,
             ClearTextOnFocus = false
         }, {
@@ -558,7 +565,7 @@ function MultiUI.Main()
             BackgroundColor3 = theme.Surface,
             Text = selectedOption or "Select an option",
             TextColor3 = theme.Text,
-            Font = Enum.Font.Gotham, -- Corrigido
+            Font = Enum.Font.Gotham,
             TextSize = 14,
             AutoButtonColor = false
         }, {
@@ -612,12 +619,13 @@ function MultiUI.Main()
             end
 
             for i, option in ipairs(config.Options or {}) do
+                -- CORREÇÃO: Já está usando TextButton (correto)
                 local optionButton = m.New("TextButton", {
                     Size = UDim2.new(1, 0, 0, 32),
                     BackgroundColor3 = theme.Surface,
                     Text = option,
                     TextColor3 = theme.Text,
-                    Font = Enum.Font.Gotham, -- Corrigido
+                    Font = Enum.Font.Gotham,
                     TextSize = 14,
                     AutoButtonColor = false
                 }, {
@@ -686,7 +694,7 @@ function MultiUI.Main()
             Text = config.Text or "Label",
             TextColor3 = theme.Text,
             TextXAlignment = config.Alignment or Enum.TextXAlignment.Left,
-            Font = Enum.Font.Gotham, -- Corrigido
+            Font = Enum.Font.Gotham,
             TextSize = config.TextSize or 14,
             Parent = config.Parent
         })
@@ -716,16 +724,17 @@ function MultiUI.Main()
             Text = config.Text or "Keybind",
             TextColor3 = theme.Text,
             TextXAlignment = Enum.TextXAlignment.Left,
-            Font = Enum.Font.Gotham, -- Corrigido
+            Font = Enum.Font.Gotham,
             TextSize = 14
         })
 
+        -- CORREÇÃO: Já está usando TextButton (correto)
         local keyButton = m.New("TextButton", {
             Size = UDim2.new(0, 70, 0, 25),
             BackgroundColor3 = theme.Surface,
             Text = currentKey.Name,
             TextColor3 = theme.Text,
-            Font = Enum.Font.Gotham, -- Corrigido
+            Font = Enum.Font.Gotham,
             TextSize = 12,
             AutoButtonColor = false
         }, {
@@ -845,7 +854,7 @@ function MultiUI.Main()
                 Text = windowConfig.Title,
                 TextColor3 = theme.Text,
                 TextXAlignment = Enum.TextXAlignment.Left,
-                Font = Enum.Font.Gotham, -- Corrigido
+                Font = Enum.Font.Gotham,
                 TextSize = 16
             }),
             m.New("TextButton", {
@@ -855,7 +864,7 @@ function MultiUI.Main()
                 BackgroundColor3 = theme.Error,
                 Text = "X",
                 TextColor3 = Color3.new(1, 1, 1),
-                Font = Enum.Font.Gotham, -- Corrigido
+                Font = Enum.Font.Gotham,
                 TextSize = 14,
                 AutoButtonColor = false
             }, {
