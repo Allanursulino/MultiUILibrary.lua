@@ -34,7 +34,7 @@ MultiUI.Connections = {}
 
 -- Configurações padrão
 MultiUI.DefaultConfig = {
-    Font = "rbxassetid://12187365364",
+    Font = Enum.Font.Gotham, -- Alterado para fonte padrão do Roblox
     BackgroundImage = "",
     BackgroundTransparency = 0.8,
     CanDraggable = true,
@@ -210,7 +210,7 @@ function MultiUI.Main()
             BackgroundColor3 = theme.Primary,
             Text = config.Text or "Button",
             TextColor3 = Color3.new(1, 1, 1),
-            Font = Enum.Font.fromName("Gotham", Enum.FontWeight.Medium),
+            Font = Enum.Font.Gotham, -- Corrigido
             TextSize = 14,
             AutoButtonColor = false,
             Parent = config.Parent
@@ -266,7 +266,7 @@ function MultiUI.Main()
             Text = config.Text or "Toggle",
             TextColor3 = theme.Text,
             TextXAlignment = Enum.TextXAlignment.Left,
-            Font = Enum.Font.fromName("Gotham", Enum.FontWeight.Medium),
+            Font = Enum.Font.Gotham, -- Corrigido
             TextSize = 14
         })
 
@@ -364,7 +364,7 @@ function MultiUI.Main()
             Text = config.Text or "Slider",
             TextColor3 = theme.Text,
             TextXAlignment = Enum.TextXAlignment.Left,
-            Font = Enum.Font.fromName("Gotham", Enum.FontWeight.Medium),
+            Font = Enum.Font.Gotham, -- Corrigido
             TextSize = 14
         })
 
@@ -374,7 +374,7 @@ function MultiUI.Main()
             Text = tostring(currentValue),
             TextColor3 = theme.TextSecondary,
             TextXAlignment = Enum.TextXAlignment.Right,
-            Font = Enum.Font.fromName("Gotham", Enum.FontWeight.Medium),
+            Font = Enum.Font.Gotham, -- Corrigido
             TextSize = 12
         })
 
@@ -493,7 +493,7 @@ function MultiUI.Main()
                 Text = config.Text,
                 TextColor3 = theme.Text,
                 TextXAlignment = Enum.TextXAlignment.Left,
-                Font = Enum.Font.fromName("Gotham", Enum.FontWeight.Medium),
+                Font = Enum.Font.Gotham, -- Corrigido
                 TextSize = 12
             })
             label.Parent = textBoxFrame
@@ -505,7 +505,7 @@ function MultiUI.Main()
             TextColor3 = theme.Text,
             PlaceholderText = config.Placeholder or "Enter text...",
             PlaceholderColor3 = theme.TextSecondary,
-            Font = Enum.Font.fromName("Gotham", Enum.FontWeight.Regular),
+            Font = Enum.Font.Gotham, -- Corrigido
             TextSize = 14,
             ClearTextOnFocus = false
         }, {
@@ -558,7 +558,7 @@ function MultiUI.Main()
             BackgroundColor3 = theme.Surface,
             Text = selectedOption or "Select an option",
             TextColor3 = theme.Text,
-            Font = Enum.Font.fromName("Gotham", Enum.FontWeight.Regular),
+            Font = Enum.Font.Gotham, -- Corrigido
             TextSize = 14,
             AutoButtonColor = false
         }, {
@@ -617,7 +617,7 @@ function MultiUI.Main()
                     BackgroundColor3 = theme.Surface,
                     Text = option,
                     TextColor3 = theme.Text,
-                    Font = Enum.Font.fromName("Gotham", Enum.FontWeight.Regular),
+                    Font = Enum.Font.Gotham, -- Corrigido
                     TextSize = 14,
                     AutoButtonColor = false
                 }, {
@@ -686,7 +686,7 @@ function MultiUI.Main()
             Text = config.Text or "Label",
             TextColor3 = theme.Text,
             TextXAlignment = config.Alignment or Enum.TextXAlignment.Left,
-            Font = Enum.Font.fromName("Gotham", config.FontWeight or Enum.FontWeight.Regular),
+            Font = Enum.Font.Gotham, -- Corrigido
             TextSize = config.TextSize or 14,
             Parent = config.Parent
         })
@@ -716,7 +716,7 @@ function MultiUI.Main()
             Text = config.Text or "Keybind",
             TextColor3 = theme.Text,
             TextXAlignment = Enum.TextXAlignment.Left,
-            Font = Enum.Font.fromName("Gotham", Enum.FontWeight.Medium),
+            Font = Enum.Font.Gotham, -- Corrigido
             TextSize = 14
         })
 
@@ -725,7 +725,7 @@ function MultiUI.Main()
             BackgroundColor3 = theme.Surface,
             Text = currentKey.Name,
             TextColor3 = theme.Text,
-            Font = Enum.Font.fromName("Gotham", Enum.FontWeight.Medium),
+            Font = Enum.Font.Gotham, -- Corrigido
             TextSize = 12,
             AutoButtonColor = false
         }, {
@@ -845,7 +845,7 @@ function MultiUI.Main()
                 Text = windowConfig.Title,
                 TextColor3 = theme.Text,
                 TextXAlignment = Enum.TextXAlignment.Left,
-                Font = Enum.Font.fromName("Gotham", Enum.FontWeight.SemiBold),
+                Font = Enum.Font.Gotham, -- Corrigido
                 TextSize = 16
             }),
             m.New("TextButton", {
@@ -855,7 +855,7 @@ function MultiUI.Main()
                 BackgroundColor3 = theme.Error,
                 Text = "X",
                 TextColor3 = Color3.new(1, 1, 1),
-                Font = Enum.Font.fromName("Gotham", Enum.FontWeight.Bold),
+                Font = Enum.Font.Gotham, -- Corrigido
                 TextSize = 14,
                 AutoButtonColor = false
             }, {
@@ -918,7 +918,7 @@ function MultiUI.Main()
             windowConfig.Font = fontName
             for _, element in pairs(window:GetDescendants()) do
                 if element:IsA("TextLabel") or element:IsA("TextButton") or element:IsA("TextBox") then
-                    element.Font = Enum.Font.fromName(fontName, element.FontStyle or Enum.FontWeight.Regular)
+                    element.Font = fontName
                 end
             end
         end
